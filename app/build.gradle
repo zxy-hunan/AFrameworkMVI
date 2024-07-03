@@ -2,15 +2,16 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
 }
+apply from: '../mviframework/config.gradle'
 
 android {
     namespace 'com.xy.application'
-    compileSdk 34
+    compileSdk versions.compileSdk
 
     defaultConfig {
         applicationId "com.xy.application"
-        minSdk 24
-        targetSdk 34
+        minSdk versions.minSdk
+        targetSdk versions.targetSdk
         versionCode 1
         versionName "1.0"
 
@@ -27,11 +28,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility versions.javaSDKVersion
+        targetCompatibility versions.javaSDKVersion
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = versions.jvmTarget
     }
     buildFeatures {
         compose true

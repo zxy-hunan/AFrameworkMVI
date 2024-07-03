@@ -1,0 +1,16 @@
+ext {
+    framework = [
+            appName       : "mviframework",
+            appId         : "com.xy.mviframework",
+            appVersion    : "1.0.0",
+            appVersionCode: 1,
+    ]
+
+    versions = [
+            compileSdk    : 34,
+            minSdk        : 24,
+            targetSdk     : 34,
+            javaSDKVersion: JavaVersion.VERSION_17,
+            jvmTarget     : 17,
+    ]
+}
