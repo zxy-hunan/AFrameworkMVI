@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.xy.application.ui.theme.MyApplicationTheme
+import com.xy.mviframework.util.ToastUtil
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,6 +24,7 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+        ToastUtil.showShortToast(this, "Hello")
     }
 }
 
