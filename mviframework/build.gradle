@@ -17,6 +17,12 @@ android {
         consumerProguardFiles "consumer-rules.pro"
     }
 
+    publishing {
+        singleVariant('release') {
+            withSourcesJar()
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -30,6 +36,24 @@ android {
     kotlinOptions {
         jvmTarget = versions.jvmTarget
     }
+
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = 'com.xy.aframe'
+            artifactId = 'aframe'
+            version = '1.0.0'
+
+            afterEvaluate {
+                from components.release
+            }
+        }
+    }
 }
 
 dependencies {
@@ -37,6 +61,10 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.13.1'
     implementation 'androidx.appcompat:appcompat:1.7.0'
     implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.databinding:viewbinding:8.5.1'
 
-
+    api dependenciesroot["viewbinding-ktx"]
+    api dependenciesroot["viewbinding-nonreflection"]
+    api dependenciesroot["viewbinding-base"]
+    api dependenciesroot["viewbinding-brvah"]
 }

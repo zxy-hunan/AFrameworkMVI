@@ -10,8 +10,8 @@ ext {
             compileSdk    : 34,
             minSdk        : 24,
             targetSdk     : 34,
-            javaSDKVersion: JavaVersion.VERSION_17,
-            jvmTarget     : 17,
+            javaSDKVersion: JavaVersion.VERSION_11,
+            jvmTarget     : 11,
     ]
 
     libVersions = [
@@ -35,32 +35,38 @@ ext {
             arouterCompilerVersion     : "1.5.2",
             //数据库
             roomVersion                : "2.4.3",
+            viewbindingVersion         : "2.1.0",
     ]
 
-    dependencies = [
+    dependenciesroot = [
             //图片加载
-            "bumptech-glide-glide"          : "com.github.bumptech.glide:glide:${libVersions["glideVersion"]}",
-            "bumptech-glide-recyclerview"   : "com.github.bumptech.glide:recyclerview-integration:${libVersions["glideVersion"]}",
-            "bumptech-glide-compiler"       : "com.github.bumptech.glide:compiler:${libVersions["glideVersion"]}",
-            "glide-transformations"         : "jp.wasabeef:glide-transformations:${libVersions["glideTransformationsVersion"]}",
+            "bumptech-glide-glide"       : "com.github.bumptech.glide:glide:${libVersions["glideVersion"]}",
+            "bumptech-glide-recyclerview": "com.github.bumptech.glide:recyclerview-integration:${libVersions["glideVersion"]}",
+            "bumptech-glide-compiler"    : "com.github.bumptech.glide:compiler:${libVersions["glideVersion"]}",
+            "glide-transformations"      : "jp.wasabeef:glide-transformations:${libVersions["glideTransformationsVersion"]}",
             //屏幕适配
-            androidAutoSize: "com.github.JessYanCoding:AndroidAutoSize:${libVersions.androidAutoSizeVersion}",
+            androidAutoSize              : "com.github.JessYanCoding:AndroidAutoSize:${libVersions.androidAutoSizeVersion}",
             //工具类
-            RxToolRxKit    : "com.github.tamsiree.RxTool:RxKit:${libVersions["RxToolRxKitVersion"]}",
+            RxToolRxKit                  : "com.github.tamsiree.RxTool:RxKit:${libVersions["RxToolRxKitVersion"]}",
             //Lottie动画
-            lottie         : "com.airbnb.android:lottie:${libVersions.lottieVersion}",
+            lottie                       : "com.airbnb.android:lottie:${libVersions.lottieVersion}",
             //沉浸式状态栏
-            immersionbar   : "com.geyifeng.immersionbar:immersionbar:${libVersions.immersionbarVersion}",
+            immersionbar                 : "com.geyifeng.immersionbar:immersionbar:${libVersions.immersionbarVersion}",
             //高效的任意位置弹窗方案
-            layer          : "com.github.JessYanCoding:Layer:${libVersions.layerVersion}",
+            layer                        : "com.github.JessYanCoding:Layer:${libVersions.layerVersion}",
             //权限申请
-            XXPermissions  : "com.github.getActivity:XXPermissions:${libVersions["XXPermissionsVersion"]}",
+            XXPermissions                : "com.github.getActivity:XXPermissions:${libVersions["XXPermissionsVersion"]}",
             //路由
-            arouterApi     : "com.alibaba:arouter-api:${libVersions["arouterApiVersion"]}",
-            arouterCompiler: "com.alibaba:arouter-compiler:${libVersions["arouterCompilerVersion"]}",
+            arouterApi                   : "com.alibaba:arouter-api:${libVersions["arouterApiVersion"]}",
+            arouterCompiler              : "com.alibaba:arouter-compiler:${libVersions["arouterCompilerVersion"]}",
             //数据库
-            roomRuntime    : "androidx.room:room-runtime:${libVersions["roomVersion"]}",
-            roomCompiler   : "androidx.room:room-compiler:${libVersions["roomVersion"]}",
+            roomRuntime                  : "androidx.room:room-runtime:${libVersions["roomVersion"]}",
+            roomCompiler                 : "androidx.room:room-compiler:${libVersions["roomVersion"]}",
+
+            "viewbinding-ktx"            : "com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-ktx:${libVersions["viewbindingVersion"]}",
+            "viewbinding-nonreflection"  : "com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-nonreflection-ktx:${libVersions["viewbindingVersion"]}",
+            "viewbinding-base"           : "com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-base:${libVersions["viewbindingVersion"]}",
+            "viewbinding-brvah"          : "com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-brvah:${libVersions["viewbindingVersion"]}",
     ]
 
 }
