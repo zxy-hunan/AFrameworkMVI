@@ -2,24 +2,12 @@ package com.xy.application
 
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.os.Build.VERSION_CODES.R
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.xy.application.ui.theme.MyApplicationTheme
 import com.xy.mviframework.util.ToastUtil
 
 class MainActivity : Activity() {

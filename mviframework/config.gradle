@@ -36,6 +36,7 @@ ext {
             //数据库
             roomVersion                : "2.4.3",
             viewbindingVersion         : "2.1.0",
+
     ]
 
     dependenciesroot = [
@@ -67,6 +68,7 @@ ext {
             "viewbinding-nonreflection"  : "com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-nonreflection-ktx:${libVersions["viewbindingVersion"]}",
             "viewbinding-base"           : "com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-base:${libVersions["viewbindingVersion"]}",
             "viewbinding-brvah"          : "com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-brvah:${libVersions["viewbindingVersion"]}",
+
     ]
 
 }
