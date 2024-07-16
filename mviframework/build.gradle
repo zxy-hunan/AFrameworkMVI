@@ -47,7 +47,7 @@ publishing {
         release(MavenPublication) {
             groupId = 'com.xy.aframe'
             artifactId = 'aframe'
-            version = '1.0.0'
+            version = '1.0.7'
 
             afterEvaluate {
                 from components.release
