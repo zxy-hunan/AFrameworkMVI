@@ -16,7 +16,7 @@
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.MyApplication">
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,7 +24,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".TestAcy"/>
+        <activity android:name=".TestAcy"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            />
+
     </application>
 
 </manifest>

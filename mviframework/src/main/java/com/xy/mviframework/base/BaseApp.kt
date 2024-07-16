@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import androidx.lifecycle.ViewModelStore
 import androidx.lifecycle.ViewModelStoreOwner
+import okhttp3.Interceptor
 
 /**
  * @file BaseApp
@@ -13,6 +14,11 @@ import androidx.lifecycle.ViewModelStoreOwner
  */
 open class BaseApp : Application(), ViewModelStoreOwner {
     private var mAppViewModelStore: ViewModelStore? = null
+    open var BASEURL="test"
+
+    open fun getInterceptors() :List<Interceptor>{
+        return emptyList()
+    }
 
     companion object {
         lateinit var instance: BaseApp

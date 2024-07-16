@@ -91,4 +91,7 @@ dependencies {
     api dependenciesroot["viewbinding-base"]
     api dependenciesroot["viewbinding-brvah"]
 
+    api dependenciesroot["lifecycle-viewmodel-ktx"]
+    api dependenciesroot["lifecycle-runtime-ktx"]
+
 }

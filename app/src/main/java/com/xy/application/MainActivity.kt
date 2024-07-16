@@ -2,6 +2,7 @@ package com.xy.application
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -55,6 +56,9 @@ class MainActivity : Activity() {
             }
         })
 
+        findViewById<Button>(R.id.bt_confirm).setOnClickListener {
+            startActivity(Intent(this, TestAcy::class.java))
+        }
 
     }
 }

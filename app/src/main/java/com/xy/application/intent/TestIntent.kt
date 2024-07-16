@@ -8,5 +8,7 @@ import com.xy.mviframework.base.vm.BaseIntent
  * @date 2024/7/15 18:00
  * @brief testintent
  */
-class TestIntent : BaseIntent{
+sealed class TestIntent : BaseIntent{
+
+    data class Test(val data:String):TestIntent()
 }

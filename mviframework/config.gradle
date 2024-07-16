@@ -36,6 +36,7 @@ ext {
             //数据库
             roomVersion                : "2.4.3",
             viewbindingVersion         : "2.1.0",
+            lifecycleVersion        : "2.6.1",
 
     ]
 
@@ -68,6 +69,10 @@ ext {
             "viewbinding-nonreflection"  : "com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-nonreflection-ktx:${libVersions["viewbindingVersion"]}",
             "viewbinding-base"           : "com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-base:${libVersions["viewbindingVersion"]}",
             "viewbinding-brvah"          : "com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-brvah:${libVersions["viewbindingVersion"]}",
+
+            // lifecycle 对于协程的扩展封装
+            "lifecycle-viewmodel-ktx"       : "androidx.lifecycle:lifecycle-viewmodel-ktx:${libVersions["lifecycleVersion"]}",
+            "lifecycle-runtime-ktx"         : "androidx.lifecycle:lifecycle-runtime-ktx:${libVersions["lifecycleVersion"]}",
 
     ]
 
