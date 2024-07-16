@@ -67,6 +67,24 @@ dependencies {
     // Optional
     api 'com.github.DylanCaiCoding.Longan:longan-design:1.1.1'
 
+    //network start
+    //retrofit
+    api 'com.squareup.retrofit2:retrofit:2.9.0'
+    api 'io.github.vincent-series:sharp-retrofit:2.0'
+    api 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0'
+    api 'com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0'
+
+    //okhttp
+    api(platform("com.squareup.okhttp3:okhttp-bom:4.11.0"))
+    api("com.squareup.okhttp3:okhttp")
+    api("com.squareup.okhttp3:logging-interceptor")
+
+    api 'com.google.code.gson:gson:2.10'
+
+    api 'com.blankj:utilcodex:1.31.1'
+    //network end
+
+
 //    api dependenciesroot["okio"]
     api dependenciesroot["viewbinding-ktx"]
     api dependenciesroot["viewbinding-nonreflection"]
