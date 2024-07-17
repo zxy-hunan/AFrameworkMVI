@@ -37,6 +37,9 @@ ext {
             roomVersion                : "2.4.3",
             viewbindingVersion         : "2.1.0",
             lifecycleVersion        : "2.6.1",
+            //recyclerView用
+            liangjingkanjiVersion           : "1.5.8",
+            refreshHeaderVersion           : "2.1.0",
 
     ]
 
@@ -73,6 +76,11 @@ ext {
             // lifecycle 对于协程的扩展封装
             "lifecycle-viewmodel-ktx"       : "androidx.lifecycle:lifecycle-viewmodel-ktx:${libVersions["lifecycleVersion"]}",
             "lifecycle-runtime-ktx"         : "androidx.lifecycle:lifecycle-runtime-ktx:${libVersions["lifecycleVersion"]}",
+
+            //https://github.com/liangjingkanji/BRV
+            "liangjingkanji"                : "com.github.liangjingkanji:BRV:${libVersions["liangjingkanjiVersion"]}",
+            "refresh-header-classics"              : "io.github.scwang90:refresh-header-classics:${libVersions["refreshHeaderVersion"]}",
+            "refresh-header-two-level"              : "io.github.scwang90:refresh-header-two-level:${libVersions["refreshHeaderVersion"]}",
 
     ]
 

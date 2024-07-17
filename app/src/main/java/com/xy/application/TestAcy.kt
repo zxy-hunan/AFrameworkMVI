@@ -6,6 +6,8 @@ import com.xy.application.databinding.ActivityTestBinding
 import com.xy.application.intent.TestIntent
 import com.xy.application.vm.TestViewModel
 import com.xy.mviframework.base.ui.vb.MviAcy
+import java.util.Timer
+import java.util.TimerTask
 
 /**
  * @file TestAcy
@@ -19,6 +21,17 @@ class TestAcy : MviAcy<ActivityTestBinding, TestViewModel, TestIntent>(vMCls = T
 
     override fun initView() {
         viewModel.testReq()
+
+       //写一个定时器两秒后执行
+        Timer().schedule(object : TimerTask() {
+            override fun run() {
+               runOnUiThread {
+                   binding.refreshLayout.showEmpty()
+               }
+            }
+        }, 2000)
+
+
     }
 
     override fun observe() {

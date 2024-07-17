@@ -4,6 +4,8 @@ import android.app.Application
 import android.content.Context
 import androidx.lifecycle.ViewModelStore
 import androidx.lifecycle.ViewModelStoreOwner
+import com.drake.statelayout.StateConfig
+import com.xy.mviframework.R
 import okhttp3.Interceptor
 
 /**
@@ -37,6 +39,24 @@ open class BaseApp : Application(), ViewModelStoreOwner {
         super.onCreate()
         mAppViewModelStore = ViewModelStore()
         //autosize使用副单位
+
+//        setStateView()
+    }
+
+    /**
+     * @author xhj
+     * @since 2024/7/17 18:08
+     * @des  缺省页配置
+     */
+    fun setStateView(){
+        StateConfig.apply {
+            emptyLayout = R.layout.layout_empty
+            errorLayout = R.layout.layout_error
+            loadingLayout = R.layout.layout_loading
+
+            //全局的Id
+            setRetryIds()
+        }
     }
 
 }

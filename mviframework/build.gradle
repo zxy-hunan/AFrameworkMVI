@@ -82,6 +82,10 @@ dependencies {
     api 'com.google.code.gson:gson:2.10'
 
     api 'com.blankj:utilcodex:1.31.1'
+
+    //LoadingStateView 是一个深度解耦缺省页和标题栏的工具
+    api 'com.github.DylanCaiCoding.LoadingStateView:loadingstateview-ktx:4.1.0'
+
     //network end
 
     api dependenciesroot["androidAutoSize"]
@@ -95,5 +99,10 @@ dependencies {
 
     api dependenciesroot["lifecycle-viewmodel-ktx"]
     api dependenciesroot["lifecycle-runtime-ktx"]
+
+    //Brv recyclerview
+    api dependenciesroot["liangjingkanji"]
+    api dependenciesroot["refresh-header-classics"]
+    api dependenciesroot["refresh-header-two-level"]
 
 }
