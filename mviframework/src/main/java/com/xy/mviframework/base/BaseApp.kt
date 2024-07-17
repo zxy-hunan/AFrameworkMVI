@@ -36,7 +36,7 @@ open class BaseApp : Application(), ViewModelStoreOwner {
     override fun onCreate() {
         super.onCreate()
         mAppViewModelStore = ViewModelStore()
-        //autosize
+        //autosize使用副单位
     }
 
 }
