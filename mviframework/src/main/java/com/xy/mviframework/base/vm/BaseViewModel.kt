@@ -19,7 +19,7 @@ import kotlinx.coroutines.launch
  */
 open class BaseViewModel<I> : ViewModel() {
 
-    protected val _baseIntent=MutableSharedFlow<BaseIntent>()
+    protected val _baseIntent = MutableSharedFlow<BaseIntent>()
     val baseIntent: SharedFlow<BaseIntent>
         get() = _baseIntent
 
@@ -37,8 +37,11 @@ open class BaseViewModel<I> : ViewModel() {
     protected fun <T> Flow<BaseResponse<T>>.HttpCoroutine(onError: (Throwable) -> Unit = {}, onSuccess: (T) -> Unit = {}): Job {
         return viewModelScope.launch {
             HttpBy(
+                onFail = {
+                    _baseIntent.emitCoroutine(BaseIntent.ShowLoading(it))
+                },
                 onError = {
-//                    _baseIntent.emitCoroutine(BaseIntent.CompletionRefreshOrLoadError(it))
+                    _baseIntent.emitCoroutine(BaseIntent.ShowLoading("${it.message}"))
                     onError.invoke(it)
                 }, onSuccess = {
 //                    _baseIntent.emitCoroutine(BaseIntent.CompletionRefreshOrLoadSuccess())

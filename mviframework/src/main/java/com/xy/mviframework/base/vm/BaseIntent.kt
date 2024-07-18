@@ -6,7 +6,7 @@ package com.xy.mviframework.base.vm
  * @date 2024/7/15 11:02
  * @brief BaseIntent
  */
-sealed class BaseIntent {
+open class BaseIntent {
     data class ShowLoading(val msg: String = "Loading...") : BaseIntent()
 
     data class ShowEmpty(val msg: String = "empty") :BaseIntent()

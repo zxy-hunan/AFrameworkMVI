@@ -18,15 +18,15 @@
     tools:text="Title" />
 
   <ImageView
-    android:id="@+id/iv_left"
-    android:layout_width="24dp"
-    android:layout_height="24dp"
-    android:layout_marginStart="16dp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:srcCompat="@drawable/ic_arrow_back_ios"
-    tools:visibility="visible" />
+      android:id="@+id/iv_left"
+      android:layout_width="24dp"
+      android:layout_height="24dp"
+      android:layout_marginStart="16dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:srcCompat="@android:mipmap/sym_def_app_icon"
+      tools:visibility="visible" />
 
   <TextView
     android:id="@+id/tv_left"
