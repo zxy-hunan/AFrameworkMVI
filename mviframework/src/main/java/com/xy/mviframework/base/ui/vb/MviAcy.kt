@@ -1,9 +1,13 @@
 package com.xy.mviframework.base.ui.vb
 
+import android.view.View
 import androidx.annotation.DrawableRes
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.viewbinding.ViewBinding
+import com.dylanc.loadingstateview.LoadingState
+import com.dylanc.loadingstateview.LoadingStateDelegate
+import com.dylanc.loadingstateview.OnReloadListener
 import com.xy.mviframework.base.vm.BaseIntent
 import com.xy.mviframework.base.vm.BaseViewModel
 import kotlinx.coroutines.Dispatchers
@@ -21,7 +25,7 @@ abstract class MviAcy<VB : ViewBinding, VM : BaseViewModel<I>, I : BaseIntent>(
     private val vMCls: Class<VM>,
     titleRes: String? = null,
     @DrawableRes val windowBgRes: Int? = null
-) : BaseAcy<VB>() {
+) : BaseAcy<VB>(),LoadingState by LoadingStateDelegate(), OnReloadListener {
     abstract fun observe()
     private var dftIntentJob: Job? = null
 
@@ -38,8 +42,33 @@ abstract class MviAcy<VB : ViewBinding, VM : BaseViewModel<I>, I : BaseIntent>(
             window.setBackgroundDrawableResource(it)
         }
         _viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[vMCls]
-        //接收intent 事件
+        //接收baseintent 事件
+
+        lifecycleScope.launch(Dispatchers.Main) {
+            viewModel.baseIntent.collect {
+               when(it){
+                   is BaseIntent.ShowLoading ->{
+                       showLoadingView()
+                   }
+
+                   is BaseIntent.ShowEmpty ->{
+                       showEmptyView()
+                   }
+
+                   else ->{
+
+                   }
+
+               }
+            }
+        }
+
         observe()
+    }
+
+    override fun setContentView(view: View?) {
+        super.setContentView(view)
+
     }
 
     protected fun intentCallBack(callBack: (I) -> Unit) {

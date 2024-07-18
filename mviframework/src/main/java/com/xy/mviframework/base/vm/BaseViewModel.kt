@@ -19,6 +19,10 @@ import kotlinx.coroutines.launch
  */
 open class BaseViewModel<I> : ViewModel() {
 
+    protected val _baseIntent=MutableSharedFlow<BaseIntent>()
+    val baseIntent: SharedFlow<BaseIntent>
+        get() = _baseIntent
+
     val _intent = MutableSharedFlow<I>()
     val intent: SharedFlow<I>
         get() = _intent

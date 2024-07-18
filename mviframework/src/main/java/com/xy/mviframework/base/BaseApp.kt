@@ -1,11 +1,16 @@
 package com.xy.mviframework.base
 
+import ToolbarViewDelegate
 import android.app.Application
 import android.content.Context
 import androidx.lifecycle.ViewModelStore
 import androidx.lifecycle.ViewModelStoreOwner
 import com.drake.statelayout.StateConfig
+import com.dylanc.loadingstateview.LoadingStateView
 import com.xy.mviframework.R
+import com.xy.mviframework.loadingstate.EmptyViewDelegate
+import com.xy.mviframework.loadingstate.ErrorViewDelegate
+import com.xy.mviframework.loadingstate.LoadingViewDelegate
 import okhttp3.Interceptor
 
 /**
@@ -16,9 +21,9 @@ import okhttp3.Interceptor
  */
 open class BaseApp : Application(), ViewModelStoreOwner {
     private var mAppViewModelStore: ViewModelStore? = null
-    open var BASEURL="test"
+    open var BASEURL = "test"
 
-    open fun getInterceptors() :List<Interceptor>{
+    open fun getInterceptors(): List<Interceptor> {
         return emptyList()
     }
 
@@ -40,7 +45,7 @@ open class BaseApp : Application(), ViewModelStoreOwner {
         mAppViewModelStore = ViewModelStore()
         //autosize使用副单位
 
-//        setStateView()
+        setStateView()
     }
 
     /**
@@ -48,7 +53,11 @@ open class BaseApp : Application(), ViewModelStoreOwner {
      * @since 2024/7/17 18:08
      * @des  缺省页配置
      */
-    fun setStateView(){
+    private fun setStateView() {
+        LoadingStateView.setViewDelegatePool {
+            register(ToolbarViewDelegate(), LoadingViewDelegate(), ErrorViewDelegate(), EmptyViewDelegate())
+        }
+
         StateConfig.apply {
             emptyLayout = R.layout.layout_empty
             errorLayout = R.layout.layout_error

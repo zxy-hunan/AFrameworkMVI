@@ -47,4 +47,8 @@ class TestAcy : MviAcy<ActivityTestBinding, TestViewModel, TestIntent>(vMCls = T
     override fun onListener() {
     }
 
+    override fun onReload() {
+        super.onReload()
+    }
+
 }
