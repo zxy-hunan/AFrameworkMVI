@@ -2,12 +2,12 @@ package com.xy.mviframework.network.default
 
 import com.coder.vincent.sharp_retrofit.call_adapter.flow.FlowCallAdapterFactory
 import com.coder.vincent.sharp_retrofit.interceptors.TimeoutInterceptor
-import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.xy.mviframework.base.BaseApp
 import com.xy.mviframework.network.api.BaseApiManager
-import com.xy.mviframework.network.api.KotlinX
+import com.xy.mviframework.network.api.DataInterceptor
 import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 /**
  * @file ApiRetrofit
@@ -30,6 +30,7 @@ open class ApiRetrofit : BaseApiManager() {
                 builder.addInterceptor(interceptor)
             }
         }
+        builder.addInterceptor(DataInterceptor())
         builder.addInterceptor(TimeoutInterceptor())
         builder.cache(getCache())
         builder
@@ -41,7 +42,8 @@ open class ApiRetrofit : BaseApiManager() {
             .client(httpClient.build())
             .baseUrl(BaseApp.instance.BASEURL)
             .addCallAdapterFactory(FlowCallAdapterFactory.create())
-            .addConverterFactory(KotlinX.jsonDecoder.asConverterFactory(contentType))
+//            .addConverterFactory(KotlinX.jsonDecoder.asConverterFactory(contentType))
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
         retrofit
     }

@@ -1,9 +1,10 @@
 package com.xy.application.api
 
-import com.xy.mviframework.network.default.BaseResponse
+import com.xy.application.data.BaseModel
+import com.xy.mviframework.network.default.BaseRes
 import kotlinx.coroutines.flow.Flow
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.GET
+import retrofit2.http.QueryMap
 
 /**
  * @file TestService
@@ -12,6 +13,6 @@ import retrofit2.http.Path
  * @brief apiservice
  */
 interface TestService {
-    @POST("{test}")
-    fun test(@Path(value = "test", encoded = true) test:String): Flow<BaseResponse<String>>
+    @GET("system/article/list")
+    fun articleList(@QueryMap params: Map<String,String>): Flow<BaseRes<List<BaseModel>>>
 }

@@ -1,6 +1,6 @@
 package com.xy.mviframework.network.api;
 
-import com.xy.mviframework.network.default.BaseResponse
+import com.xy.mviframework.network.default.BaseRes
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
@@ -15,11 +15,11 @@ import kotlinx.coroutines.flow.onStart
  * @brief http request
  */
 
-suspend fun <T> Flow<BaseResponse<T>>.HttpBy(
+suspend fun <T> Flow<BaseRes<T>>.HttpBy(
     onStart: () -> Unit = {},
     onError: (Throwable) -> Unit = {},
     onComplete: (isSuccess: Boolean, msg: String) -> Unit = { _: Boolean, _: String -> },
-    onCompleteData: (BaseResponse<T>) -> Unit = { },
+    onCompleteData: (BaseRes<T>) -> Unit = { },
     onSuccess: (T) -> Unit = {},
     onFail: (msg: String) -> Unit = {},
 ) = flowOn(Dispatchers.IO)//指定Flow流在Dispatchers.IO线程上运行，用于执行耗时的IO操作。
@@ -41,14 +41,15 @@ suspend fun <T> Flow<BaseResponse<T>>.HttpBy(
             if (it.data != null) {
                 onSuccess.invoke(it.data)
             } else {
-                onFail.invoke(it.message)
+                it.rows?.let {onSuccess.invoke(it)  }
+                onFail.invoke(it.msg)
             }
-            onComplete.invoke(true, it.message ?: "")
+            onComplete.invoke(true, it.msg ?: "")
         } else {
-            onFail.invoke(it.message)
+            onFail.invoke(it.msg)
         }
         onCompleteData.invoke(it)
-        onComplete.invoke(false, it.message ?: "")
+        onComplete.invoke(false, it.msg ?: "")
     }
 
 

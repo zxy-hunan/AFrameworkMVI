@@ -3,7 +3,7 @@ package com.xy.mviframework.base.vm
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.xy.mviframework.network.api.HttpBy
-import com.xy.mviframework.network.default.BaseResponse
+import com.xy.mviframework.network.default.BaseRes
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
@@ -34,7 +34,7 @@ open class BaseViewModel<I> : ViewModel() {
         }
     }
 
-    protected fun <T> Flow<BaseResponse<T>>.HttpCoroutine(onError: (Throwable) -> Unit = {}, onSuccess: (T) -> Unit = {}): Job {
+    protected fun <T> Flow<BaseRes<T>>.HttpCoroutine(onError: (Throwable) -> Unit = {}, onSuccess: (T) -> Unit = {}): Job {
         return viewModelScope.launch {
             HttpBy(
                 onFail = {

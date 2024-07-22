@@ -1,5 +1,6 @@
 package com.xy.mviframework.network.default
 
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
@@ -9,10 +10,16 @@ import kotlinx.serialization.Serializable
  * @brief Common Response Data
  */
 @Serializable
-data class BaseResponse<T>(
+data class BaseRes<T>(
+    @SerialName("code")
     val code: String = "",
-    val message: String = "",
-    val data: T?
+    @SerialName("msg")
+    val msg: String = "",
+    @SerialName("data")
+    val data: T?,
+    @SerialName("rows")
+    val rows: T?
+
 ) {
 
  /*   val data: T

@@ -1,13 +1,10 @@
 package com.xy.application.vm
 
-import androidx.lifecycle.viewModelScope
+import android.util.Log
 import com.xy.application.api.TestService
 import com.xy.application.intent.TestIntent
 import com.xy.mviframework.base.vm.BaseViewModel
 import com.xy.mviframework.network.default.apiRetrofit
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 /**
  * @file TestViewModel
@@ -21,17 +18,17 @@ class TestViewModel : BaseViewModel<TestIntent>() {
     }
 
     fun testReq() {
-//        apiService.test("TEST").HttpCoroutine(onSuccess = {
-//
-//            _intent.emitCoroutine(TestIntent.Test(it))
-//
-//        }, onError = {
-//
-//        })
+        var dftMap = mutableMapOf<String, String>("pageNo" to "1", "pageSize" to "10")
+        apiService.articleList(dftMap).HttpCoroutine(onSuccess = {
 
-        viewModelScope.launch(Dispatchers.Default) {
-            delay(3000)
-            _intent.emitCoroutine(TestIntent.Test("test"))
-        }
+            Log.e("MainVm", "articleList: onSuccess")
+        }, onError = {
+            Log.e("MainVm", "articleList: onError")
+        })
+
+        /*  viewModelScope.launch(Dispatchers.Default) {
+              delay(3000)
+              _intent.emitCoroutine(TestIntent.Test("test"))
+          }*/
     }
 }
