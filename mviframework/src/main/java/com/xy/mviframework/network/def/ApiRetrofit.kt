@@ -1,4 +1,4 @@
-package com.xy.mviframework.network.default
+package com.xy.mviframework.network.def
 
 import com.coder.vincent.sharp_retrofit.call_adapter.flow.FlowCallAdapterFactory
 import com.coder.vincent.sharp_retrofit.interceptors.TimeoutInterceptor

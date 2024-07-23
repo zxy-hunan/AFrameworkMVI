@@ -1,7 +1,7 @@
 package com.xy.application.api
 
 import com.xy.application.data.BaseModel
-import com.xy.mviframework.network.default.BaseRes
+import com.xy.mviframework.network.def.BaseRes
 import kotlinx.coroutines.flow.Flow
 import retrofit2.http.GET
 import retrofit2.http.QueryMap

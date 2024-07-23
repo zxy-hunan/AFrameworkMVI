@@ -1,6 +1,6 @@
 package com.xy.mviframework.network.api;
 
-import com.xy.mviframework.network.default.BaseRes
+import com.xy.mviframework.network.def.BaseRes
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch

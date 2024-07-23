@@ -36,10 +36,11 @@ ext {
             //数据库
             roomVersion                : "2.4.3",
             viewbindingVersion         : "2.1.0",
-            lifecycleVersion        : "2.6.1",
+            lifecycleVersion           : "2.6.1",
             //recyclerView用
-            liangjingkanjiVersion           : "1.5.8",
-            refreshHeaderVersion           : "2.1.0",
+            liangjingkanjiVersion      : "1.5.8",
+            refreshHeaderVersion       : "2.1.0",
+            shapeViewVersion           : "8.5",
 
     ]
 
@@ -57,6 +58,7 @@ ext {
             lottie                       : "com.airbnb.android:lottie:${libVersions.lottieVersion}",
             //沉浸式状态栏
             immersionbar                 : "com.geyifeng.immersionbar:immersionbar:${libVersions.immersionbarVersion}",
+            "immersionbar-ktx"              : "com.geyifeng.immersionbar:immersionbar-ktx:${libVersions["immersionbarVersion"]}",
             //高效的任意位置弹窗方案
             layer                        : "com.github.JessYanCoding:Layer:${libVersions.layerVersion}",
             //权限申请
@@ -74,13 +76,15 @@ ext {
             "viewbinding-brvah"          : "com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-brvah:${libVersions["viewbindingVersion"]}",
 
             // lifecycle 对于协程的扩展封装
-            "lifecycle-viewmodel-ktx"       : "androidx.lifecycle:lifecycle-viewmodel-ktx:${libVersions["lifecycleVersion"]}",
-            "lifecycle-runtime-ktx"         : "androidx.lifecycle:lifecycle-runtime-ktx:${libVersions["lifecycleVersion"]}",
+            "lifecycle-viewmodel-ktx"    : "androidx.lifecycle:lifecycle-viewmodel-ktx:${libVersions["lifecycleVersion"]}",
+            "lifecycle-runtime-ktx"      : "androidx.lifecycle:lifecycle-runtime-ktx:${libVersions["lifecycleVersion"]}",
 
             //https://github.com/liangjingkanji/BRV
-            "liangjingkanji"                : "com.github.liangjingkanji:BRV:${libVersions["liangjingkanjiVersion"]}",
-            "refresh-header-classics"              : "io.github.scwang90:refresh-header-classics:${libVersions["refreshHeaderVersion"]}",
-            "refresh-header-two-level"              : "io.github.scwang90:refresh-header-two-level:${libVersions["refreshHeaderVersion"]}",
+            "liangjingkanji"             : "com.github.liangjingkanji:BRV:${libVersions["liangjingkanjiVersion"]}",
+            "refresh-header-classics"    : "io.github.scwang90:refresh-header-classics:${libVersions["refreshHeaderVersion"]}",
+            "refresh-header-two-level"   : "io.github.scwang90:refresh-header-two-level:${libVersions["refreshHeaderVersion"]}",
+
+            "ShapeView"                  : "com.github.getActivity:ShapeView:${libVersions["shapeViewVersion"]}",
 
     ]
 

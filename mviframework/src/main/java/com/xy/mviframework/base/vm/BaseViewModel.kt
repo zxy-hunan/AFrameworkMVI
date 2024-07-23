@@ -3,7 +3,7 @@ package com.xy.mviframework.base.vm
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.xy.mviframework.network.api.HttpBy
-import com.xy.mviframework.network.default.BaseRes
+import com.xy.mviframework.network.def.BaseRes
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow

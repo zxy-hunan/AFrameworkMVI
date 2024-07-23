@@ -4,7 +4,7 @@ import android.util.Log
 import com.xy.application.api.TestService
 import com.xy.application.intent.TestIntent
 import com.xy.mviframework.base.vm.BaseViewModel
-import com.xy.mviframework.network.default.apiRetrofit
+import com.xy.mviframework.network.def.apiRetrofit
 
 /**
  * @file TestViewModel

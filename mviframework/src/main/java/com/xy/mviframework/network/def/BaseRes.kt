@@ -1,4 +1,4 @@
-package com.xy.mviframework.network.default
+package com.xy.mviframework.network.def
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
