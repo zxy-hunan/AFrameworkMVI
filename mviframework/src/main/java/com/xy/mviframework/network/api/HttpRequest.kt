@@ -42,6 +42,7 @@ suspend fun <T> Flow<BaseRes<T>>.HttpBy(
                 onSuccess.invoke(it.data)
             } else {
                 it.rows?.let {onSuccess.invoke(it)  }
+                it.token?.let {onSuccess.invoke(it)  }
                 onFail.invoke(it.msg)
             }
             onComplete.invoke(true, it.msg ?: "")
