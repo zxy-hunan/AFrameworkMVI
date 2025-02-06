@@ -18,7 +18,9 @@ data class BaseRes<T>(
     @SerialName("data")
     val data: T?,
     @SerialName("rows")
-    val rows: T?
+    val rows: T?,
+    @SerialName("token")
+    val token: T?
 
 ) {
 
