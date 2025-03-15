@@ -15,12 +15,17 @@ data class BaseRes<T>(
     val code: String = "",
     @SerialName("msg")
     val msg: String = "",
+    @SerialName("total")
+    val total: Int = 0,
     @SerialName("data")
     val data: T?,
     @SerialName("rows")
     val rows: T?,
     @SerialName("token")
-    val token: T?
+    val token: T?,
+    @SerialName("user")
+    val user: T?
+
 
 ) {
 

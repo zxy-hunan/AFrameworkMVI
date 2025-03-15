@@ -20,6 +20,7 @@ suspend fun <T> Flow<BaseRes<T>>.HttpBy(
     onError: (Throwable) -> Unit = {},
     onComplete: (isSuccess: Boolean, msg: String) -> Unit = { _: Boolean, _: String -> },
     onCompleteData: (BaseRes<T>) -> Unit = { },
+    onOriginSuccess: (BaseRes<T>) -> Unit = {baseRsp: BaseRes<T> ->},
     onSuccess: (T) -> Unit = {},
     onFail: (msg: String) -> Unit = {},
 ) = flowOn(Dispatchers.IO)//指定Flow流在Dispatchers.IO线程上运行，用于执行耗时的IO操作。
@@ -37,9 +38,10 @@ suspend fun <T> Flow<BaseRes<T>>.HttpBy(
         //可关闭加载进度条
 
     }.collect {//收集流中的数据
+        onOriginSuccess.invoke(it)
         if (it.code == HttpCode.SUCCEED.code) {
             if (it.data != null) {
-                onSuccess.invoke(it.data)
+                onOriginSuccess.invoke(it)
             } else {
                 it.rows?.let {onSuccess.invoke(it)  }
                 it.token?.let {onSuccess.invoke(it)  }

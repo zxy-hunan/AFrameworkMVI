@@ -34,7 +34,9 @@ open class BaseViewModel<I> : ViewModel() {
         }
     }
 
-    protected fun <T> Flow<BaseRes<T>>.HttpCoroutine(onError: (Throwable) -> Unit = {}, onSuccess: (T) -> Unit = {}): Job {
+    protected fun <T> Flow<BaseRes<T>>.HttpCoroutine(onError: (Throwable) -> Unit = {},
+                                                     onOriginSuccess: (BaseRes<T>) -> Unit = {baseRsp: BaseRes<T> ->},
+                                                     onSuccess: (T) -> Unit = {}): Job {
         return viewModelScope.launch {
             HttpBy(
                 onFail = {
@@ -46,6 +48,9 @@ open class BaseViewModel<I> : ViewModel() {
                 }, onSuccess = {
 //                    _baseIntent.emitCoroutine(BaseIntent.CompletionRefreshOrLoadSuccess())
                     onSuccess.invoke(it)
+                },
+                onOriginSuccess = {
+                    onOriginSuccess.invoke(it)
                 }
             )
         }
